@@ -18,7 +18,7 @@
   <div id="main" ng-controller="taskCreator">
       <form ng-submit="addTask()">
 
-        <p>Task Name: <input type="text" ng-model="taskName" value="" placeholder="Task Name" required></p>{{nameExists}}
+        <p>Task Name: <input type="text" ng-model="taskName" value="" placeholder="Task Name" required>{{nameExists}}</p>
         <p>Deadline: <input  type="date" id="deadline" name='deadline' ng-model="deadline" min={{todaysDate}} max={{maxDate}} required>{{dateMessage}}</p>
         <p>Execution Time in Hours: <input type="number" ng-model="executionTime" value="" placeholder="" required></p>
         <p>Work or Personal: <input name='kind' type="radio" id="work" ng-model="kind" value="work" required>Work
