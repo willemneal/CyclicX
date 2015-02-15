@@ -1,0 +1,39 @@
+<!DOCTYPE html >
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="CyclicX" > <!--<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+<script type="text/javascript" src="/static/js/taskset.js"></script>
+
+<head>
+  <meta charset="utf-8">
+  <title>CyclicX</title>
+  <!--<link rel="stylesheet" href="css/style.css">-->
+  <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body>
+  <div id="main" ng-controller="taskCreator">
+      <form ng-submit="addTask()">
+
+        <p>Task Name: <input type="text" ng-model="taskName" value="" placeholder="Task Name" required></p>{{nameExists}}
+        <p>Deadline: <input  type="date" id="deadline" name='deadline' ng-model="deadline" min={{todaysDate}} max={{maxDate}} required>{{dateMessage}}</p>
+        <p>Execution Time in Hours: <input type="number" ng-model="executionTime" value="" placeholder="" required></p>
+        <p>Work or Personal: <input name='kind' type="radio" id="work" ng-model="kind" value="work" required>Work
+        <input name='kind' type="radio" ng-model="kind" id="personal" value="personal" >Personal</p>
+        <p>Enjoyment<input type="range" id="enjoyment" ng-model="enjoyment" min="-10" max="10" required>{{enjoyment}}</p>
+
+        <p><input id="submit" type='submit' value="Add Task"></p>
+      </form>
+
+
+  <div id="Hand">
+    <div  ng-repeat="task in tasks">
+        Name: {{task.name}}, Deadline: {{task.deadline}}, Execution Time: {{task.executionTime}}, Work or Personal: {{task.kind}}, Enjoyment: {{task.enjoyment}}
+    </div>
+  </div>
+</div>
+</body>
+</html>
